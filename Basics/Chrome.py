@@ -14,7 +14,7 @@ driver.find_element(By.XPATH, "//input[@id='password']").send_keys("secret_sauce
 driver.find_element(By.ID, "login-button").click()
 
 driver.find_element(By.XPATH, "//span[@class='title'][contains(.,'Products')]").is_displayed()
-driver.save_screenshot('/Users/nkosi/PycharmProjects/Python4thGroup2024/Basics/Screenshot/nkosi.png')
+driver.save_screenshot('/Users/thand/OneDrive/Automation_Class/Python/Python4thGroup2024/Home.png')
 # driver.get_screenshot_as_file('/Users/nkosi/PycharmProjects/Python4thGroup2024/Screenshot/home.png')
 
 # if productText == 'Productsf':

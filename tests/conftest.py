@@ -15,11 +15,11 @@ def setup(browser):
 
     else:
         driver = webdriver.Firefox()
-        return driver
+    return driver
 
 
 def pytest_addoption(parser):
-    parser.addotion("--browser")
+    parser.addoption("--browser")
 
 
 @pytest.fixture()

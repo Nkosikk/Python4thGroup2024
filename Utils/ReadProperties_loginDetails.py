@@ -8,3 +8,4 @@ class ReadLoginProperties():
 
     def getSauceDemoURL(self):
         return config.get("URLS", "sauceDemoURL")
+

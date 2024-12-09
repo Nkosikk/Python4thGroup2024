@@ -19,8 +19,6 @@ class LoginPage:
     # Please delete the comment applicableto u when done writing your code
     #ToDo Sandile to do the method to enter password
 
-
-    #ToDo Tman to do the method to enter clicklogin button
     def clickLoginButton(self):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_login_xpath)))

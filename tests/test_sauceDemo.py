@@ -9,6 +9,8 @@ from Utils.ReadProperties_loginDetails import ReadLoginProperties
 
 class Test_SauceDemo:
     sauceDemoURL = ReadLoginProperties().getSauceDemoURL()
+    username = ReadLoginProperties().getUsername()
+    password = ReadLoginProperties().getPassword()
 
     @pytest.mark.nkosi
     @allure.severity(allure.severity_level.CRITICAL)
@@ -17,8 +19,8 @@ class Test_SauceDemo:
         self.driver.get(self.sauceDemoURL)
         self.driver.maximize_window()
         self.login = LoginPage(self.driver)
-        self.login.enterUsername("standard_user")
-        self.login.enterPassword("secret_sauce")
+        self.login.enterUsername(self.username)
+        self.login.enterPassword(self.password)
         self.login.clickLoginButton()
 
         time.sleep(3)

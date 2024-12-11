@@ -6,9 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 class LoginPage:
     textbox_username_xpath = "//input[contains(@id,'user-name')]"
     textbox_password_xpath = "//input[contains(@id,'password')]"
-
-    addBackPack_id = "add-to-cart-sauce-labs-backpack"
-
     button_login_xpath = "//input[contains(@id,'login-button')]"
 
     def __init__(self, driver):
@@ -24,10 +21,6 @@ class LoginPage:
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.textbox_password_xpath)))
         element.send_keys(password)
 
-    def selectBackPack(self):
-        wait = WebDriverWait(self.driver, 10)
-        element = wait.until(EC.element_to_be_clickable((By.ID, self.addBackPack_id)))
-        element.click()
 
     # Please delete the comment applicableto u when done writing your code
     #ToDo Sandile to do the method to enter password

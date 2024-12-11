@@ -2,6 +2,7 @@ import time
 
 import allure
 import pytest
+from allure_commons.types import AttachmentType
 
 from Pages.loginPage import LoginPage
 from Utils.ReadProperties_loginDetails import ReadLoginProperties
@@ -21,6 +22,9 @@ class Test_SauceDemo:
         self.login = LoginPage(self.driver)
         self.login.enterUsername(self.username)
         self.login.enterPassword(self.password)
+        allure.attach(self.driver.get_screenshot_as_png(),name="login page",attachment_type=AttachmentType.PNG)
         self.login.clickLoginButton()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Inventory page", attachment_type=AttachmentType.PNG)
+
 
         time.sleep(3)

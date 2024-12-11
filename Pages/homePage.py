@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class HomePage:
-    product_label_xpath = "//div[@class='product_label'][contains(.,'Products')]"
+    product_label_xpath = "//span[@class='title'][contains(.,'Products')]"
 
 
     def __init__(self, driver):

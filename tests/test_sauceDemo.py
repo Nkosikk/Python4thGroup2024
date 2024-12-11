@@ -4,6 +4,7 @@ import allure
 import pytest
 from allure_commons.types import AttachmentType
 
+from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
 from Utils.ReadProperties_loginDetails import ReadLoginProperties
 
@@ -20,10 +21,12 @@ class Test_SauceDemo:
         self.driver.get(self.sauceDemoURL)
         self.driver.maximize_window()
         self.login = LoginPage(self.driver)
+        self.home = HomePage(self.driver)
         self.login.enterUsername(self.username)
         self.login.enterPassword(self.password)
         allure.attach(self.driver.get_screenshot_as_png(),name="login page",attachment_type=AttachmentType.PNG)
         self.login.clickLoginButton()
+        self.home.verifyThatUserIsLoggedIn()
         allure.attach(self.driver.get_screenshot_as_png(), name="Inventory page", attachment_type=AttachmentType.PNG)
 
 

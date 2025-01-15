@@ -1,0 +1,15 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
+class UserInformationPage:
+    firstName_id = "first-name"
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def enterFirstName(self, firstname):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.element_to_be_clickable((By.ID, self.firstName_id)))
+        element.send_keys(firstname)

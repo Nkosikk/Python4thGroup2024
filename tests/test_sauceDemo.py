@@ -6,14 +6,17 @@ from allure_commons.types import AttachmentType
 
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
+from Pages.userInformationPage import UserInformationPage
 from Pages.yourCartPage import YourCartPage
 from Utils.ReadProperties_loginDetails import ReadLoginProperties
+from Utils.ReadProperties_userInformation import ReadUserInformationProperties
 
 
 class Test_SauceDemo:
     sauceDemoURL = ReadLoginProperties().getSauceDemoURL()
     username = ReadLoginProperties().getUsername()
     password = ReadLoginProperties().getPassword()
+    firstName=ReadUserInformationProperties().getFirstName()
 
     @pytest.mark.nkosi
     @allure.severity(allure.severity_level.CRITICAL)
@@ -24,6 +27,7 @@ class Test_SauceDemo:
         self.login = LoginPage(self.driver)
         self.home = HomePage(self.driver)
         self.yourCart = YourCartPage(self.driver)
+        self.userInfo=UserInformationPage(self.driver)
         self.login.enterUsername(self.username)
         self.login.enterPassword(self.password)
         allure.attach(self.driver.get_screenshot_as_png(),name="login page",attachment_type=AttachmentType.PNG)
@@ -33,6 +37,7 @@ class Test_SauceDemo:
         self.home.selectBackPack()
         self.yourCart.viewToCart()
         self.yourCart.clickCheckoutButton()
+        self.userInfo.enterFirstName(self.firstName)
 
 
 

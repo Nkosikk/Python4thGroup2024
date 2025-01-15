@@ -8,3 +8,5 @@ class ReadUserInformationProperties():
 
     def getFirstName(self):
         return config.get("UserInformation", "firstName")
+    def getLastName(self):
+        return config.get("UserInformation", "lastName")

@@ -17,6 +17,7 @@ class Test_SauceDemo:
     username = ReadLoginProperties().getUsername()
     password = ReadLoginProperties().getPassword()
     firstName=ReadUserInformationProperties().getFirstName()
+    lastName=ReadUserInformationProperties().getLastName()
 
     @pytest.mark.nkosi
     @allure.severity(allure.severity_level.CRITICAL)
@@ -38,6 +39,7 @@ class Test_SauceDemo:
         self.yourCart.viewToCart()
         self.yourCart.clickCheckoutButton()
         self.userInfo.enterFirstName(self.firstName)
+        self.userInfo.enterLastName(self.lastName)
 
 
 

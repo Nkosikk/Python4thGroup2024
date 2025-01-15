@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class UserInformationPage:
     firstName_id = "first-name"
+    lastName_id = "last-name"
 
     def __init__(self, driver):
         self.driver = driver
@@ -13,3 +14,6 @@ class UserInformationPage:
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.element_to_be_clickable((By.ID, self.firstName_id)))
         element.send_keys(firstname)
+    def enterLastName(self, lastname):
+        element = self.driver.find_element(By.ID,  self.lastName_id)
+        element.send_keys(lastname)

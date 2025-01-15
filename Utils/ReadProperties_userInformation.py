@@ -10,3 +10,6 @@ class ReadUserInformationProperties():
         return config.get("UserInformation", "firstName")
     def getLastName(self):
         return config.get("UserInformation", "lastName")
+
+    def getZipCode(self):
+        return config.get("UserInformation", "postalCode")

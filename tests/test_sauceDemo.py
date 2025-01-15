@@ -18,7 +18,7 @@ class Test_SauceDemo:
     password = ReadLoginProperties().getPassword()
     firstName=ReadUserInformationProperties().getFirstName()
     lastName=ReadUserInformationProperties().getLastName()
-
+    postalCode=ReadUserInformationProperties().getZipCode()
     @pytest.mark.nkosi
     @allure.severity(allure.severity_level.CRITICAL)
     def test_loginToSauceDemo(self, setup):
@@ -40,6 +40,7 @@ class Test_SauceDemo:
         self.yourCart.clickCheckoutButton()
         self.userInfo.enterFirstName(self.firstName)
         self.userInfo.enterLastName(self.lastName)
+        self.userInfo.enterZipCode(self.postalCode)
 
 
 

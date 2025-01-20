@@ -4,6 +4,7 @@ import allure
 import pytest
 from allure_commons.types import AttachmentType
 
+from Pages.checkoutOverviewPage import CheckoutOverviewPage
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
 from Pages.userInformationPage import UserInformationPage
@@ -29,6 +30,7 @@ class Test_SauceDemo:
         self.home = HomePage(self.driver)
         self.yourCart = YourCartPage(self.driver)
         self.userInfo=UserInformationPage(self.driver)
+        self.checkoutOverview=CheckoutOverviewPage(self.driver)
         self.login.enterUsername(self.username)
         self.login.enterPassword(self.password)
         allure.attach(self.driver.get_screenshot_as_png(),name="login page",attachment_type=AttachmentType.PNG)
@@ -43,5 +45,7 @@ class Test_SauceDemo:
         self.userInfo.enterZipCode(self.postalCode)
         allure.attach(self.driver.get_screenshot_as_png(), name="User Information page", attachment_type=AttachmentType.PNG)
         self.userInfo.clickContinueButton()
+        self.checkoutOverview.verifyCheckoutTitle()
+        self.checkoutOverview.calculateCartItems()
 
         time.sleep(3)

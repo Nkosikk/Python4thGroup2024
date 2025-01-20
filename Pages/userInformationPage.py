@@ -8,6 +8,7 @@ class UserInformationPage:
     lastName_id = "last-name"
     zipCode_id = "postal-code"
     continueButton_id = "continue"
+    
 
     def __init__(self, driver):
         self.driver = driver

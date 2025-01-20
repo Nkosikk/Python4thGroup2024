@@ -7,6 +7,7 @@ class UserInformationPage:
     firstName_id = "first-name"
     lastName_id = "last-name"
     zipCode_id = "postal-code"
+    continueButton_id = "continue"
 
     def __init__(self, driver):
         self.driver = driver
@@ -23,3 +24,7 @@ class UserInformationPage:
     def enterZipCode(self, zipcode):
         element = self.driver.find_element(By.ID, self.zipCode_id)
         element.send_keys(zipcode)
+
+    def clickContinueButton(self):
+        element = self.driver.find_element(By.ID, self.continueButton_id)
+        element.click()

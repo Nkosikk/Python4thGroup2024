@@ -41,7 +41,7 @@ class Test_SauceDemo:
         self.userInfo.enterFirstName(self.firstName)
         self.userInfo.enterLastName(self.lastName)
         self.userInfo.enterZipCode(self.postalCode)
-
-
+        allure.attach(self.driver.get_screenshot_as_png(), name="User Information page", attachment_type=AttachmentType.PNG)
+        self.userInfo.clickContinueButton()
 
         time.sleep(3)

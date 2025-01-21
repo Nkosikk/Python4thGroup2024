@@ -43,8 +43,9 @@ class Test_SauceDemo:
         self.userInfo.enterFirstName(self.firstName)
         self.userInfo.enterLastName(self.lastName)
         self.userInfo.enterZipCode(self.postalCode)
-        allure.attach(self.driver.get_screenshot_as_png(), name="User Information page", attachment_type=AttachmentType.PNG)
+        allure.attach(self.driver.get_screenshot_as_png(), name="User Infor page", attachment_type=AttachmentType.PNG)
         self.userInfo.clickContinueButton()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Your Cart page", attachment_type=AttachmentType.PNG)
         self.checkoutOverview.verifyCheckoutTitle()
         self.checkoutOverview.calculateCartItems()
 
